@@ -30,6 +30,7 @@ jobs:
 
       - name: Commit
         run: |
+          git add Formula/gen-ir.rb
           git commit -m "Update formula to gen-ir version ${{ github.events.inputs.tag }}"
           git push
 
