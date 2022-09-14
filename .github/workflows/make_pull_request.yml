@@ -21,22 +21,22 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@github.com'
 
-          git checkout -b gen_ir_update_${{ github.events.inputs.tag }}
+          git checkout -b gen_ir_update_${{ github.event.inputs.tag }}
 
       - name: Replace Information
         run: |
-          sed -i 's/tag:      "/tag:      "${{ github.events.inputs.tag }}",/g' Formula/gen-ir.rb
-          sed -i 's/revision: "/revision: "${{ github.events.inputs.hash}}"/g' Formula/gen-ir.rb
+          sed -i 's/tag:      "/tag:      "${{ github.event.inputs.tag }}",/g' Formula/gen-ir.rb
+          sed -i 's/revision: "/revision: "${{ github.event.inputs.hash}}"/g' Formula/gen-ir.rb
 
       - name: Commit
         run: |
           git add Formula/gen-ir.rb
-          git commit -m "Update formula to gen-ir version ${{ github.events.inputs.tag }}"
-          git push -u origin gen_ir_update_${{ github.events.inputs.tag }}
+          git commit -m "Update formula to gen-ir version ${{ github.event.inputs.tag }}"
+          git push -u origin gen_ir_update_${{ github.event.inputs.tag }}
 
       - name: Open PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr create --title "gen-ir update ${{ github.events.inputs.tag }}" --body "Automated update for gen-ir version ${{ github.events.inputs.tag }}"
+          gh pr create --title "gen-ir update ${{ github.event.inputs.tag }}" --body "Automated update for gen-ir version ${{ github.event.inputs.tag }}"
 
