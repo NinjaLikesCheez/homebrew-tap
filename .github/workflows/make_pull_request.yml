@@ -21,7 +21,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@github.com'
 
-          git checkout -b gen_ir_update_${{ github.events.input.tag }}
+          git checkout -b gen_ir_update_${{ github.events.inputs.tag }}
 
       - name: Replace Information
         run: |
@@ -32,7 +32,7 @@ jobs:
         run: |
           git add Formula/gen-ir.rb
           git commit -m "Update formula to gen-ir version ${{ github.events.inputs.tag }}"
-          git push
+          git push -u origin gen_ir_update_${{ github.events.inputs.tag }}
 
       - name: Open PR
         env:
