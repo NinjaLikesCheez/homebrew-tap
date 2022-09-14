@@ -25,8 +25,8 @@ jobs:
 
       - name: Replace Information
         run: |
-          sed -i 's/tag:      "/tag:      "${{ github.event.inputs.tag }}",/g' Formula/gen-ir.rb
-          sed -i 's/revision: "/revision: "${{ github.event.inputs.hash}}"/g' Formula/gen-ir.rb
+          sed -i 's/tag:      ".*/tag:      "${{ github.event.inputs.tag }}",/g' Formula/gen-ir.rb
+          sed -i 's/revision: ".*/revision: "${{ github.event.inputs.hash}}"/g' Formula/gen-ir.rb
 
       - name: Commit
         run: |
