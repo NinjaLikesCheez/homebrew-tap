@@ -1,11 +1,11 @@
 class GenIr < Formula
   desc "Generate LLVM IR from an Xcode Build Log"
-  homepage "https://github.com/NinjaLikesCheez/gen-ir"
-  url "https://github.com/NinjaLikesCheez/gen-ir.git",
-    tag:      "0.1.4",
-    revision: "8c02b4c74cecd14f0470e7c003f9e5e32b1a67f5"
+  homepage "https://github.com/veracode/gen-ir"
+  url "https://github.com/veracode/gen-ir.git",
+    tag:      "0.2.0",
+    revision: "32d4be42e52a1779c6dd2a2573042c2caf34ee08"
   version_scheme 1
-  head "https://github.com/NinjaLikesCheez/gen-ir.git", branch: "main"
+  head "https://github.com/veracode/gen-ir.git", branch: "main"
 
   livecheck do
     url :stable
@@ -13,8 +13,8 @@ class GenIr < Formula
   end
 
   bottle do
-    root_url "https://github.com/NinjaLikesCheez/homebrew-tap/releases/download/gen-ir-0.1.4"
-    sha256 cellar: :any_skip_relocation, monterey: "0a9f35dc04c747a4d758fcf3e3b5ce9e6cdb65ed5e120c2eea892b95fbeac739"
+    root_url "https://github.com/veracode/homebrew-tap/releases/download/gen-ir-0.1.5"
+    sha256 cellar: :any_skip_relocation, monterey: "0d74f879417fa9512bf8389476c50d4fbbe5b5df952aa512e35578d7a79a2433"
   end
 
   depends_on xcode: ["13.0", :build]
