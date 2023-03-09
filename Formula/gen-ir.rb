@@ -1,11 +1,11 @@
 class GenIr < Formula
   desc "Generate LLVM IR from an Xcode Build Log"
-  homepage "https://github.com/NinjaLikesCheez/gen-ir"
-  url "https://github.com/NinjaLikesCheez/gen-ir.git",
-    tag:      "0.1.4",
-    revision: "8c02b4c74cecd14f0470e7c003f9e5e32b1a67f5"
+  homepage "https://github.com/veracode/gen-ir"
+  url "https://github.com/veracode/gen-ir.git",
+    tag:      "0.3.0",
+    revision: "82fad0ce480f28e138f8df1542191b47c793b8f5"
   version_scheme 1
-  head "https://github.com/NinjaLikesCheez/gen-ir.git", branch: "main"
+  head "https://github.com/veracode/gen-ir.git", branch: "main"
 
   livecheck do
     url :stable
@@ -13,14 +13,12 @@ class GenIr < Formula
   end
 
   bottle do
-    root_url "https://github.com/NinjaLikesCheez/homebrew-tap/releases/download/gen-ir-0.1.4"
-    sha256 cellar: :any_skip_relocation, monterey: "0a9f35dc04c747a4d758fcf3e3b5ce9e6cdb65ed5e120c2eea892b95fbeac739"
+    root_url "https://github.com/veracode/homebrew-tap/releases/download/gen-ir-0.2.1"
+    sha256 cellar: :any_skip_relocation, monterey: "f78e27732e9df10abc328932628cb2e1bf2938c330fbd46e7c7e8c1e5c35b018"
   end
 
   depends_on xcode: ["13.0", :build]
   depends_on macos: :monterey
-
-  uses_from_macos "swift"
 
   def install
     system "swift", "build", "-c", "release", "--disable-sandbox"
